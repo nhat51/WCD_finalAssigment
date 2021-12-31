@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <servlet>
+        <servlet-name>CreateBrand</servlet-name>
+        <servlet-class>manage.phone.finalassigment.controller.Brand.CreateBrand</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateBrand</servlet-name>
+        <url-pattern>/brand/create</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ListBrand</servlet-name>
+        <servlet-class>manage.phone.finalassigment.controller.Brand.ListBrand</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListBrand</servlet-name>
+        <url-pattern>/brand/list</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CreatePhoneController</servlet-name>
+        <servlet-class>manage.phone.finalassigment.controller.Phone.CreatePhoneController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreatePhoneController</servlet-name>
+        <url-pattern>/phone/create</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetListPhoneController</servlet-name>
+        <servlet-class>manage.phone.finalassigment.controller.Phone.GetListPhoneController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetListPhoneController</servlet-name>
+        <url-pattern>/phone/list</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeletePhoneController</servlet-name>
+        <servlet-class>manage.phone.finalassigment.controller.Phone.DeletePhoneController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeletePhoneController</servlet-name>
+        <url-pattern>/phone/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetPhoneDetailController</servlet-name>
+        <servlet-class>manage.phone.finalassigment.controller.Phone.GetPhoneDetailController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetPhoneDetailController</servlet-name>
+        <url-pattern>/phone/detail</url-pattern>
+    </servlet-mapping>
+
+</web-app>
