@@ -39,22 +39,11 @@
         <url-pattern>/phone/list</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>DeletePhoneController</servlet-name>
-        <servlet-class>manage.phone.finalassigment.controller.Phone.DeletePhoneController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>DeletePhoneController</servlet-name>
-        <url-pattern>/phone/delete</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>GetPhoneDetailController</servlet-name>
-        <servlet-class>manage.phone.finalassigment.controller.Phone.GetPhoneDetailController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>GetPhoneDetailController</servlet-name>
-        <url-pattern>/phone/detail</url-pattern>
-    </servlet-mapping>
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+        </jsp-property-group>
+    </jsp-config>
 
 </web-app>

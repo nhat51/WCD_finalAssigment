@@ -9,12 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 public class CreatePhoneController extends HttpServlet {
     private JpaRepository<Phone> phoneJpaRepository = new JpaRepository<>(Phone.class);
+    private JpaRepository<Brand> brandJpaRepository = new JpaRepository<>(Brand.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        List<Brand> brands = brandJpaRepository.findAll();
+        req.setAttribute("brand",brands);
+        req.getRequestDispatcher("/Phone/addphone.jsp").forward(req,resp);
     }
 
     @Override
@@ -27,6 +31,8 @@ public class CreatePhoneController extends HttpServlet {
             int brandId = Integer.parseInt(req.getParameter("brand"));
             double price = Double.parseDouble(req.getParameter("price"));
             Phone phone = new Phone(name,brandId,price,description);
+            List<Brand> brands = brandJpaRepository.findAll();
+            req.setAttribute("brand",brands);
             phoneJpaRepository.save(phone);
             resp.sendRedirect("/brand/list");
         }

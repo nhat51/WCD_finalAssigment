@@ -17,6 +17,6 @@ public class GetListPhoneController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Phone> phones = phoneJpaRepository.findAll();
         req.setAttribute("phone",phones);
-        req.getRequestDispatcher("/Phone/listphone.jsp").forward(req,resp);
+        req.getRequestDispatcher("/Phone/listphones.jsp").forward(req,resp);
     }
 }

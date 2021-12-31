@@ -16,9 +16,8 @@ public class ListBrand extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         List<Brand> brands = brandJpaRepository.findAll();
         req.setAttribute("brand",brands);
-        req.getRequestDispatcher("/Brand/listbrands.jsp");
+        req.getRequestDispatcher("/Brand/listbrands.jsp").forward(req,resp);
     }
 }

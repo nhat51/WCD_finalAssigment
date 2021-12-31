@@ -1,8 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
 
-<%@ page import="com.jspassigment2.jsp_assigment2.entity.Food" %>
-<%@ page import="com.jspassigment2.jsp_assigment2.repository.JpaRepository" %>
-<%@ page import="com.jspassigment2.jsp_assigment2.entity.Category" %>
 <%@ page import="manage.phone.finalassigment.entity.Phone" %>
 <%@ page import="manage.phone.finalassigment.entity.Brand" %>
 <%@ page import="manage.phone.finalassigment.repository.JpaRepository" %>
@@ -18,9 +15,6 @@
     request.setCharacterEncoding("UTF-8");
     ArrayList<Phone> list = (ArrayList<Phone>)request.getAttribute("phone");
     JpaRepository<Brand> repository = new JpaRepository<>(Brand.class);
-    int totalPage = (int) request.getAttribute("totalPage");
-    int pageNumber = (int) request.getAttribute("page");
-
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,10 +61,10 @@
                                 <h3 class="card-title">Products</h3>
                                 <div class="card-tools">
                                     <button type="submit" class="btn btn-default">
-                                        <a href="/admin/create" >Thêm món ăn mới</a>
+                                        <a href="/phone/create" >Thêm món ăn mới</a>
                                     </button>
                                     <button type="submit" class="btn btn-default">
-                                        <a href="/admin/list-category" >Danh sách danh mục món ăn</a>
+                                        <a href="/brand/list" >Danh sách danh mục món ăn</a>
                                     </button>
                                 </div>
                             </div>
@@ -80,13 +74,10 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Tên Món Ăn</th>
+                                        <th>Tên </th>
                                         <th>Đơn giá</th>
-                                        <th>Mô tả sản phẩm</th>
+                                        <th>Mô tả</th>
                                         <th>Mã danh mục</th>
-                                        <th>Ảnh</th>
-                                        <th>Trạng thái</th>
-                                        <th>Tùy chọn</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -98,84 +89,15 @@
                                                     <th><%= list.get(i).getName()%></th>
                                                     <th><%= list.get(i).getPrice()%></th>
                                                     <th><%= list.get(i).getDescription()%></th>
-                                                    <% Category category = repository.findById(list.get(i).getCategoryId());%>
+                                                    <% Brand category = repository.findById(list.get(i).getBrandId());%>
                                                     <th><%= category.getName()%></th>
-                                                    <th><img src="<%= list.get(i).getThumbnail()%>" style="width: 100px"> </th>
-                                                    <%
-                                                        if (list.get(i).getStatus() == 1){
-                                                    %>
-                                                    <th>
-                                                        <p style="color: #00bb00">Đang Bán</p>
-                                                    </th>
-                                                    <%
-                                                        }
-                                                    %>
-                                                    <%
-                                                        if (list.get(i).getStatus() == 2){
-                                                    %>
-                                                    <th>
-                                                        <p style="color: indianred">Dừng Bán</p>
-                                                    </th>
-                                                    <%
-                                                        }
-                                                    %>
-                                                    <%
-                                                        if (list.get(i).getStatus() == 3){
-                                                    %>
-                                                    <th>
-                                                        <p style="color:red;">Đã xóa</p>
-                                                    </th>
-                                                    <%
-                                                        }
-                                                    %>
-                                                    <th>
-                                                        <a href="/admin/update?id=<%= list.get(i).getId()%>">Update</a>|
-                                                        <a href="/admin/detail?id=<%= list.get(i).getId()%>">Detail</a>|
-                                                        <a onclick="deleteProduct(<%= list.get(i).getId()%>)" href="#">Delete</a>
-                                                    </th>
+
                                                 </tr>
                                         <%
                                             }
                                         %>
                                     </tbody>
                                 </table>
-                                <div class="ml-3 mt-3">
-                                    <nav aria-label="Page navigation example">
-                                        <ul class="pagination">
-                                            <%
-                                                if (pageNumber > 1) {
-                                            %>
-                                            <li class="page-item" ><a class="page-link" href="/admin/list?page=<%= pageNumber - 1 %>">Previous</a></li>
-                                            <%
-                                                }
-                                            %>
-                                            <%
-                                                for (int i = 1; i <= totalPage; i++) {
-                                            %>
-                                            <%
-                                                if(pageNumber == i){
-                                            %>
-                                            <li class="page-item active"><a class="page-link" href="/admin/list?page=<%=i%>"><%= i%></a></li>
-                                            <%
-                                                }else {
-                                            %>
-                                            <li class="page-item"><a class="page-link" href="/admin/list?page=<%=i%>"><%= i%></a></li>
-                                            <%
-                                                }
-                                            %>
-                                            <%
-                                                }
-                                            %>
-                                            <%
-                                                if (pageNumber < totalPage) {
-                                            %>
-                                            <li class="page-item"><a class="page-link" href="/admin/list?page=<%= pageNumber + 1 %>">Next</a></li>
-                                            <%
-                                                }
-                                            %>
-                                        </ul>
-                                    </nav>
-                                </div>
                             </div>
                             <!-- /.card-body -->
                         </div>

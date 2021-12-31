@@ -22,6 +22,9 @@ public class Phone {
     private String description;
 
     public Phone() {
+        this.name = "";
+        this.description = "";
+        this.price = 0.0;
     }
 
     public Phone(String name, int brandId, Double price, String description) {

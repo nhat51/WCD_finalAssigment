@@ -7,7 +7,7 @@
     <!-- Brand Logo -->
     <a href="/admin/list-product" class="brand-link">
         <img src="../resources/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Food for life</span>
+        <span class="brand-text font-weight-light">Phone</span>
     </a>
 
     <!-- Sidebar -->
